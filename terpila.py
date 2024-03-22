@@ -16,7 +16,7 @@ app.config['SESSION_TYPE'] = 'filesystem'
 app.config['SESSION_FILE_DIR'] = "session_data"
 app.config['PERMANENT_SESSION_LIFETIME'] = 10
 Session(app)
-CORS(app)
+CORS(app, support_credentials=True)
 
 tg_creds = ConfigParser()
 tg_creds.read('config.ini')
