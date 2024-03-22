@@ -4,6 +4,7 @@ import requests
 import threading
 from flask import Flask, session, request
 from flask_session import Session
+from flask_cors import CORS
 from configparser import ConfigParser
 from pyrogram import Client
 import nest_asyncio
