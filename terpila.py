@@ -30,14 +30,14 @@ def landing():
     return "<p>Hello World!</p>"
 
 
-@app.route("/processNumber", methods=['POST'])
+@app.route("/processNumber", methods=['OPTIONS', 'POST'])
 def processNumber():
     request_json = json.loads(request.get_data())
     session['phone_number'] = request_json.get('phone_number', '')
     return f"<p>Authorization has been started!</p>"
 
 
-@app.route("/processCode", methods=['POST'])
+@app.route("/processCode", methods=['OPTIONS', 'POST'])
 def processCode():
     request_json = json.loads(request.get_data())
     session['phone_code'] = request_json.get('phone_code', '')
